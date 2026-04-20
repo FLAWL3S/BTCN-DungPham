@@ -146,18 +146,18 @@ class App(ctk.CTk):
             messagebox.showerror("Lỗi", "Mã SV này đã tồn tại!")
 
     def select_record(self, event):
-        # 1. Xóa sạch các ô nhập liệu cũ trước khi điền dữ liệu mới
+        #Xóa sạch các ô nhập liệu cũ trước khi điền dữ liệu mới
         self.entry_id.set("")
         self.entry_name.set("")
         self.entry_major.set("")
         self.entry_gpa.set("")
 
-        # 2. Lấy ID ẩn của dòng đang được bôi đen (chọn) trên bảng
+        #Lấy ID ẩn của dòng đang được bôi đen (chọn) trên bảng
         selected_row = self.tree.focus()
         if not selected_row:
             return
 
-        # 3. Lấy toàn bộ giá trị của dòng đó và đẩy ngược lên các biến nhập liệu
+        #Lấy toàn bộ giá trị của dòng đó và đẩy ngược lên các biến nhập liệu
         values = self.tree.item(selected_row, "values")
         if values:
             self.entry_id.set(values[0])     # Mã SV
